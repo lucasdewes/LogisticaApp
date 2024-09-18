@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LoremIpsumLogisticaAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class PrimeiraCriacao : Migration
+    public partial class CriacaoInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

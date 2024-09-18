@@ -6,22 +6,22 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LoremIpsumLogisticaAPI.Data;
-using SeuProjeto.Models;
+using LoremIpsumLogisticaAPI.Models;
 
 namespace LoremIpsumLogisticaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EnderecosController : ControllerBase
+    public class EnderecoesController : ControllerBase
     {
         private readonly DataContextApp _context;
 
-        public EnderecosController(DataContextApp context)
+        public EnderecoesController(DataContextApp context)
         {
             _context = context;
         }
 
-        // GET: api/Enderecos
+        // GET: api/Enderecoes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Endereco>>> GetEnderecos()
         {
@@ -32,7 +32,7 @@ namespace LoremIpsumLogisticaAPI.Controllers
             return await _context.Enderecos.ToListAsync();
         }
 
-        // GET: api/Enderecos/5
+        // GET: api/Enderecoes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Endereco>> GetEndereco(int id)
         {
@@ -50,7 +50,7 @@ namespace LoremIpsumLogisticaAPI.Controllers
             return endereco;
         }
 
-        // PUT: api/Enderecos/5
+        // PUT: api/Enderecoes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEndereco(int id, Endereco endereco)
@@ -81,7 +81,7 @@ namespace LoremIpsumLogisticaAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Enderecos
+        // POST: api/Enderecoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Endereco>> PostEndereco(Endereco endereco)
@@ -96,7 +96,7 @@ namespace LoremIpsumLogisticaAPI.Controllers
             return CreatedAtAction("GetEndereco", new { id = endereco.Id }, endereco);
         }
 
-        // DELETE: api/Enderecos/5
+        // DELETE: api/Enderecoes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEndereco(int id)
         {

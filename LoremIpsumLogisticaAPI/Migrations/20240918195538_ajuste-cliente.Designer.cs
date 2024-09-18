@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoremIpsumLogisticaAPI.Migrations
 {
     [DbContext(typeof(DataContextApp))]
-    [Migration("20240915214408_PrimeiraCriacao")]
-    partial class PrimeiraCriacao
+    [Migration("20240918195538_ajuste-cliente")]
+    partial class ajustecliente
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace LoremIpsumLogisticaAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SeuProjeto.Models.Cliente", b =>
+            modelBuilder.Entity("LoremIpsumLogisticaAPI.Models.Cliente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace LoremIpsumLogisticaAPI.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("SeuProjeto.Models.Endereco", b =>
+            modelBuilder.Entity("LoremIpsumLogisticaAPI.Models.Endereco", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -93,16 +93,18 @@ namespace LoremIpsumLogisticaAPI.Migrations
                     b.ToTable("Enderecos");
                 });
 
-            modelBuilder.Entity("SeuProjeto.Models.Endereco", b =>
+            modelBuilder.Entity("LoremIpsumLogisticaAPI.Models.Endereco", b =>
                 {
-                    b.HasOne("SeuProjeto.Models.Cliente", null)
+                    b.HasOne("LoremIpsumLogisticaAPI.Models.Cliente", "Cliente")
                         .WithMany("Enderecos")
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("SeuProjeto.Models.Cliente", b =>
+            modelBuilder.Entity("LoremIpsumLogisticaAPI.Models.Cliente", b =>
                 {
                     b.Navigation("Enderecos");
                 });

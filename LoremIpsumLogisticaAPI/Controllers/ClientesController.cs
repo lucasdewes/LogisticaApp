@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LoremIpsumLogisticaAPI.Data;
-using SeuProjeto.Models;
+using LoremIpsumLogisticaAPI.Models;
 
 namespace LoremIpsumLogisticaAPI.Controllers
 {
@@ -29,7 +29,13 @@ namespace LoremIpsumLogisticaAPI.Controllers
             {
                 return NotFound();
             }
-            return await _context.Clientes.ToListAsync();
+
+            // Incluindo os endereços na consulta
+            var clientesComEnderecos = await _context.Clientes
+                .Include(c => c.Enderecos) // Inclui a lista de endereços para cada cliente
+                .ToListAsync();
+
+            return clientesComEnderecos;
         }
 
         // GET: api/Clientes/5
@@ -40,7 +46,11 @@ namespace LoremIpsumLogisticaAPI.Controllers
             {
                 return NotFound();
             }
-            var cliente = await _context.Clientes.FindAsync(id);
+
+            // Incluindo os endereços na consulta
+            var cliente = await _context.Clientes
+                .Include(c => c.Enderecos) // Inclui a lista de endereços para o cliente
+                .FirstOrDefaultAsync(c => c.Id == id);
 
             if (cliente == null)
             {

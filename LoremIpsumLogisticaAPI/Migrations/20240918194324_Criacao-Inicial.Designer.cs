@@ -4,6 +4,7 @@ using LoremIpsumLogisticaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoremIpsumLogisticaAPI.Migrations
 {
     [DbContext(typeof(DataContextApp))]
-    partial class DataContextAppModelSnapshot : ModelSnapshot
+    [Migration("20240918194324_Criacao-Inicial")]
+    partial class CriacaoInicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

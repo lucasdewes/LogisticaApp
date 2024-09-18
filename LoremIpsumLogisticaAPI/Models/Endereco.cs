@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace LoremIpsumLogisticaAPI.Models
 {
@@ -27,7 +28,10 @@ namespace LoremIpsumLogisticaAPI.Models
         [Required]
         public string UF { get; set; }
 
-        [ForeignKey("ClienteId")]
+        [JsonIgnore]
+        public Cliente? Cliente { get; set; }
+
+        [ForeignKey("Cliente")]
         public int ClienteId { get; set; }
     }
 }
