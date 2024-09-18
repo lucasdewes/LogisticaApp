@@ -24,7 +24,7 @@ clienteObj: Cliente | undefined
 
   // sexo: Sexo[] = [
   //   {sexoId: 1, sexoName: 'Masculino'},
-  //   {sexoId: 6, sexoName: 'Feminino'}
+  //   {sexoId: 2, sexoName: 'Feminino'}
   // ];
 
 
