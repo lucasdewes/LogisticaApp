@@ -1,0 +1,5 @@
+<mat-card appearance="outlined" style="width:fit-content ;">
+    <mat-card-content>O cliente selecionado é: {{clienteObj!.clienteNome}}</mat-card-content>
+    <mat-card-content>O cep do endereco é: {{clienteObj!.endereco.cep}}</mat-card-content>
+</mat-card>
+<button mat-raised-button color="primary" (click)="goMainPage()">Voltar</button>
