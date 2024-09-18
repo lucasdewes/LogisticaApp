@@ -37,12 +37,12 @@ Certifique-se de ter o .NET 6 SDK instalado. Você pode verificar a versão inst
 ### Executar o Projeto
 
 1. Navegue até o diretório do projeto backend.
-2. Execute `dotnet run` para iniciar o servidor. A aplicação estará disponível em `http://localhost:5000` por padrão.
+2. Execute `dotnet run` para iniciar o servidor. A interface do Swagger estará disponível em `https://localhost:7057/swagger` por padrão.
 
 ### Comandos do Entity Framework
 
 Para gerar e aplicar migrations no Entity Framework, siga os passos abaixo:
-
+Usando o Package Manager Console (VisualStudio2022, 2019...)
 1. **Gerar uma nova migration**:
 
    ```powershell
